@@ -2,22 +2,34 @@ package exercices.tp1.exercices3;
 
 public class Palindrome {
 
-    public boolean estPalindrome(int nombre) throws  IllegalAccessException{
-    int nombreDeBase = nombre;
-    int nombreInverse = 0;
+    public static boolean estPalindrome(long nombre) {
 
-    while (nombre > 0){
-        int reste = nombre % 10;
-        nombreInverse = nombreInverse * 10 + reste;
-        nombre = nombre / 10;
+        verifierSiNombreEstDeDeuxChiffres(nombre);
+
+        long nombreInverse = renverserNombre(nombre);
+        return nombre == nombreInverse;
+        /**
+         * Ex : 123 est renversé en 321
+         *
+         **/
+
     }
-    return nombreDeBase == nombreInverse;
 
+    private static long renverserNombre(long nombre) {
+        long nombreInverse = 0;
+        long nombreDeBase = nombre;
+
+        while (nombreDeBase != 0){
+            long reste = nombreDeBase % 10;
+            nombreInverse = nombreInverse * 10 + reste;
+            nombreDeBase = nombreDeBase / 10;
+        }
+        return nombreInverse;
     }
 
-    private static void verifierSiLeNombreEstPositif(int nombre) throws IllegalAccessException{
-        if(nombre < 0){
-        System.out.println("Le nombre doit être supérieur à 0 stp");
+    private static void verifierSiNombreEstDeDeuxChiffres(long nombre) {
+        if(nombre < 9){
+            throw new IllegalArgumentException("Le nombre doit contenir au moins deux chiffres ");
         }
     }
 
