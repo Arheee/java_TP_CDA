@@ -1,28 +1,36 @@
 package exercices.tp1.exercice1;
-import java.util.Scanner;
 
 public class CalculerMoyenne {
 
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
+    public static double getMoyenne(double[] notes) throws IllegalAccessException {
 
-int [] notes = new int[3];
-System.out.println("Veuillez saisir trois notes :");
-int somme = 0;
+        verifierSiContientTroisNotes(notes);
 
-for (int index = 1;  index <= notes.length; index++){
-    System.out.print("Note" + index + ":");
-    notes[index] = scanner.nextInt();
+        verifierSiNoteCorrectes(notes);
 
-    if (notes[index] <= 0 && notes[index] >= 20){
-        System.out.println("Erreur : la note doit être entre 0 et 20.");
-        return;
+        return calculDeLaMoyenne(notes);
+
     }
 
-    somme += notes;
-}
-int moyenne = somme /3;
-System.out.println("La moyenne des notes est : " + moyenne);
+    private static int calculDeLaMoyenne(double[] notes) {
+        int somme = 0;
+        for (double note : notes){
+            somme += note;
+        }
+        return somme / notes.length;
+    }
 
+    private static void verifierSiNoteCorrectes(double[] notes) throws IllegalAccessException {
+        for(double note: notes){
+            if( note < 0 || note > 20){
+                throw  new IllegalAccessException("les notes doivent être comprises entre 0 et 20");
+            }
+        }
+    }
+
+    private static  void verifierSiContientTroisNotes(double[] notes) throws IllegalAccessException{
+        if(notes.length != 3){
+            throw new IllegalAccessException("il doit y avoir 3 notes");
+        }
     }
 }
