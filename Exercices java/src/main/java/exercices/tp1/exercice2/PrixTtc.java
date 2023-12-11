@@ -1,25 +1,21 @@
 package exercices.tp1.exercice2;
 
-/**@
- * Écrivez un programme qui demande à l'utilisateur de saisir un prix HT, puis qui affiche le prix TTC correspondant. Le prix TTC est calculé en ajoutant la TVA au prix HT. La TVA est de 20%.
- *
- * Contraintes 🚨
- * Votre fonction prendra en paramètre un nombre float.
- * Le prix HT saisi doit être un nombre positif.
- * Le prx TTC est un nombre positif float.
- */
 public class PrixTtc {
 
-   public static double prixToutesTaxesComprises(double prixToutesTaxesComprises) throws IllegalAccessException {
-       float prixHorsTaxes = 100;
-       double tauxTva = 20;
+    /**
+     * Taux de TVA à 20%
+     */
+    public static final double TAUX_TVA = 1.20;
 
-       prixToutesTaxesComprises = prixHorsTaxes + (prixHorsTaxes*tauxTva);
+    public static double prixToutesTaxesComprises(int prixHorsTaxes) throws IllegalAccessException {
 
 
        verifierSiPrixHtPositif(prixHorsTaxes);
 
-      return prixToutesTaxesComprises;
+      return ajouterTvaAuPrix(prixHorsTaxes);
+   }
+   private static double ajouterTvaAuPrix(int prixHorsTaxes){
+        return prixHorsTaxes * TAUX_TVA;
    }
     private static void verifierSiPrixHtPositif(float prixHorsTaxes) throws IllegalAccessException {
             if( prixHorsTaxes < 0 ) {
