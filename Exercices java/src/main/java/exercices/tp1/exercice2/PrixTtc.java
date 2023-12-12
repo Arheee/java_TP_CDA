@@ -1,4 +1,4 @@
-package exercices.tp1.exercice2;
+package exercices.TP1.exercice2;
 
 public class PrixTtc {
 

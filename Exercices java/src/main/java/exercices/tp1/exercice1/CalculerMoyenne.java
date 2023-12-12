@@ -1,4 +1,4 @@
-package exercices.tp1.exercice1;
+package exercices.TP1.exercice1;
 
 public class CalculerMoyenne {
 

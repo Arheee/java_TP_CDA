@@ -1,6 +1,4 @@
-import exercices.tp1.exercice3.Palindrome;
-import exercices.tp1.exercice4.Doublon;
-import exercices.tp1.exercice5.NombresTransformers;
+import exercices.TP1.exercice5.NombresTransformers;
 
 public class Main {
 

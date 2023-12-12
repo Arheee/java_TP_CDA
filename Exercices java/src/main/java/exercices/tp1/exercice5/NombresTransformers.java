@@ -1,4 +1,4 @@
-package exercices.tp1.exercice5;
+package exercices.TP1.exercice5;
 
 import java.util.HashMap;
 

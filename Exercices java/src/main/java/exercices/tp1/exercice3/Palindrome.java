@@ -1,4 +1,4 @@
-package exercices.tp1.exercice3;
+package exercices.TP1.exercice3;
 
 public class Palindrome {
 
