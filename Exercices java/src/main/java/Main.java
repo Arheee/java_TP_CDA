@@ -1,13 +1,14 @@
 import exercices.tp1.exercice3.Palindrome;
 import exercices.tp1.exercice4.Doublon;
+import exercices.tp1.exercice5.NombresTransformers;
 
 public class Main {
 
     public static void main(String[] args) throws IllegalAccessException{
 
-            int[] monTableau = {1, 2, 3, 4, 6};
-            boolean estDoublonAvecHashmap = Doublon.estDoublonAvecHashmap(monTableau);
-            System.out.println("Le tableau contient des doublons : " + estDoublonAvecHashmap);
+            String nbRomain = "MCMXCII";
+            int valeur = NombresTransformers.calculerValeurRomain(nbRomain);
+        System.out.println(nbRomain + " est " + valeur);
 
     }
 }

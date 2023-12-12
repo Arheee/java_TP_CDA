@@ -1,5 +1,6 @@
 package exercices.tp1.exercice4;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Doublon {
@@ -11,15 +12,28 @@ public class Doublon {
      * @return true si oui sinon false
      */
     public static boolean estDoublon(int[] tableau){
-        for (int index = 0; index < tableau.length - 1 ; index++){
-            for (int indexD = index + 1; indexD < tableau.length; indexD++){
-                if (tableau[index] == tableau[indexD]){
+        for (int indexPrincipal = 0; indexPrincipal < tableau.length - 1 ; indexPrincipal++){
+            for (int indexComparatif = indexPrincipal + 1; indexComparatif < tableau.length; indexComparatif++){
+                if (tableau[indexPrincipal] == tableau[indexComparatif]){
                     return true;
                 }
             }
         }
         return false;
+    }
 
+    public static boolean estDoublonAvecTrie(int[] tableau){
+        Arrays.sort(tableau);
+        /**@Arrays.sort :
+         * Trie le tableau ex : 1, 2, 2, 3, 4, 4 etc
+         */
+
+        for(int index = 1; index < tableau.length; index ++){
+            if(tableau[index] == tableau[index -1]){
+                return true;
+            }
+        }
+        return false;
     }
 
     /**@param tableauHashmap
@@ -33,12 +47,12 @@ public class Doublon {
     public static boolean estDoublonAvecHashmap(int[] tableauHashmap){
         HashMap<Integer, Integer> occurences = new HashMap<>();
         for(int nombre : tableauHashmap){
-            if (occurences.containsKey(nombre)){
+            if (occurences.containsKey(nombre) && occurences.get(nombre) >= 1){
                 return true;
-            }else{
-                occurences.put(nombre, 1);
             }
+                occurences.put(nombre, occurences.getOrDefault(nombre, 0) + 1);
         }
+
         return false;
     }
 }
