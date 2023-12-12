@@ -1,12 +1,13 @@
 ### Diagramme UML fonctionnel et technique
-title Thermomètre - Class Thermomètre
-
+_____________________
+#### Corrine ne verra que le fonctionnel. Corrine ne comprend pas le code.
 class ThermometreFonctionnel {
-+ celsius : double
-+ fahrenheit : double
-+ kelvin : double
++ celsius 
++ fahrenheit 
++ kelvin 
   }
-
+____________________
+#### Pour les geekos
 class ThermometreTechnique{
 - celsius : double
 + getCelsius()
@@ -15,5 +16,8 @@ class ThermometreTechnique{
 + setCelsius()
 + setFahrenheit()
 + setKelvin()
-
 }
+________________________
+
+- = private
++ = public
