@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws IllegalAccessException{
 
-            String nbRomain = "MCMXCII";
+            String nbRomain = "IV";
             int valeur = NombresTransformers.calculerValeurRomain(nbRomain);
         System.out.println(nbRomain + " est " + valeur);
 
