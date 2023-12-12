@@ -1,13 +1,13 @@
-import exercices.tp1.exercice1.CalculerMoyenne;
-import exercices.tp1.exercice2.PrixTtc;
-import exercices.tp1.exercices3.Palindrome;
+import exercices.tp1.exercice3.Palindrome;
+import exercices.tp1.exercice4.Doublon;
 
 public class Main {
 
     public static void main(String[] args) throws IllegalAccessException{
 
-
-            System.out.println(Palindrome.estPalindrome(123));
+            int[] monTableau = {1, 2, 3, 4, 6};
+            boolean estDoublonAvecHashmap = Doublon.estDoublonAvecHashmap(monTableau);
+            System.out.println("Le tableau contient des doublons : " + estDoublonAvecHashmap);
 
     }
 }
