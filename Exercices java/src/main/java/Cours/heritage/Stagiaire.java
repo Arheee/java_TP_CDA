@@ -1,8 +1,9 @@
 package Cours.heritage;
 
 import java.time.LocalDate;
+import java.time.Period;
 
-public class Stagiaire extends Personne{
+public class Stagiaire extends Collaborateur {
 
     private  LocalDate debutStage;
     private  LocalDate finStage;
@@ -31,22 +32,29 @@ public class Stagiaire extends Personne{
         this.finStage = finStage;
     }
 
-    public double heuresTravaille(double heuresStage){
-        heuresStage = 0;
-        heuresStage += heuresStage;
-        System.out.println(getPrenom() + "a travaillé pendant son stage" + heuresStage + "heures");
-        return heuresStage;
+    /**@
+     * Indique que le stagiaire travaille
+     */
+    public void travailler(){
+        System.out.println(getPrenom() + "a travaillé pendant son stage" );
     }
 
-    public boolean estLicencie(){
-        if(this.finStage != null && finStage.isBefore(LocalDate.now())){
-            throw  new IllegalArgumentException("Le stagiaire est viré");
-        }
-    return false;
+    /**@ Mets fin au stage
+     */
+    public void Licencier(){
+        this.finStage = LocalDate.now();
+        System.out.println(getPrenom() + "a mal fait son taff" );
+    }
+    public int getDureeStage(){
+        return Period.between(this.debutStage, this.finStage).getDays();
     }
 
     @Override
     public  String toString() {
-        return "Le stagiaire s'appelle " + this.nom + ' ' + this.prenom;
+        return "Le stagiaire s'appelle " + this.nom + ' ' + this.prenom + "Il commence le " + this.debutStage + " jusqu'au " + this.finStage;
+    }
+    @Override
+    public void danserLaSamba(){
+        System.out.println("DANSE LA SAMBAAA 🐱‍🏍");
     }
 }

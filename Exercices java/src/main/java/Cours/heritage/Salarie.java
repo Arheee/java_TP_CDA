@@ -2,11 +2,10 @@ package Cours.heritage;
 
 import java.time.LocalDate;
 
-public class Salarie extends Personne{
+public class Salarie extends Collaborateur {
     public static final int HEURE_TRAVAILLEES_MENSUELLES_NORMALES = 151;
     private double tauxHoraireBrut;
-    private LocalDate debutContrat;
-    private LocalDate finContrat;
+
 
     /**@
      * Ici la classe Salarie hérite de Personne , donc on n'oublie pas le super dans le constructeur
@@ -16,8 +15,20 @@ public class Salarie extends Personne{
      * @param tauxHoraireBrut
      * @param debutContrat
      */
-    public Salarie(String nom, String prenom, LocalDate dateNaissance, double tauxHoraireBrut, LocalDate debutContrat) {
-        super(nom, prenom, dateNaissance);
+    public Salarie(String nom,
+                   String prenom,
+                   LocalDate dateNaissance,
+                   double tauxHoraireBrut,
+                   LocalDate debutContrat
+
+                   ) {
+        super(
+                nom,
+                prenom,
+                dateNaissance,
+                debutContrat,
+                null
+        );
         this.tauxHoraireBrut = tauxHoraireBrut;
         this.debutContrat = debutContrat;
     }
@@ -34,25 +45,6 @@ public class Salarie extends Personne{
 
     }
 
-    public LocalDate getDebutContrat() {
-        return debutContrat;
-    }
-
-    public void setDebutContrat(LocalDate debutContrat) {
-        this.debutContrat = debutContrat;
-    }
-
-    public LocalDate getFinContrat() throws Exception {
-        if (finContrat == null){
-            throw new Exception("Le salarié n'est pas encore licencié ! 👌");
-        }
-
-        return this.finContrat;
-    }
-
-    public void setFinContrat(LocalDate finContrat) {
-        this.finContrat = finContrat;
-    }
 
     /**@
      * Paie le salarié en fonction du temps passé à travailler
@@ -87,31 +79,28 @@ public class Salarie extends Personne{
             return heureTravaillees * this.tauxHoraireBrut;
 
         }
-
-
-    /**@
-     * Vérifie si le salarié n'est plus présent dans l'entreprise.
-     * @return TRUE si le salarié n'existe pas / est licencié.
-     */
-    private boolean estLicencie() {
-        return this.finContrat != null && finContrat.isBefore(LocalDate.now());
-    }
+        
 
     public double payerSalaireMensuelBrut(){
        return this.payerSalaireMensuelBrut(HEURE_TRAVAILLEES_MENSUELLES_NORMALES);
     }
-
+    @Override
     public void travailler(){
         System.out.println(this.nom + this.prenom + " Travaille dur oulala");
     }
-    public void licencier(LocalDate dateDeFin){
-        this.finContrat = dateDeFin;
-        System.out.println(this.nom + this.prenom + " est une grosse m.... !");
-    }
+
 
     //Pour que l'affichage dans le main soit SEXYYYY
     @Override // redefinir
     public String toString(){
         return "Le salarié s'appelle " + this.nom + ' ' + this.prenom;
+    }
+
+    /**@
+     * Le salarié danse la samba
+     */
+    @Override
+    public void danserLaSamba(){
+        System.out.println("DANSE LA SAMBAAA 🐱‍🏍");
     }
 }

@@ -13,6 +13,14 @@ public class Main {
                 LocalDate.now()
         );
 
-        System.out.println(michel);
+        Stagiaire titouan = new Stagiaire(
+                "Quezak",
+                "Titouan",
+                LocalDate.of(2000,03,30),
+                LocalDate.now(),
+                LocalDate.of(2024,01,04)
+        );
+
+        System.out.println(titouan);
     }
 }
