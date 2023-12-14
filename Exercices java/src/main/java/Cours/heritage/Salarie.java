@@ -79,7 +79,7 @@ public class Salarie extends Collaborateur {
             return heureTravaillees * this.tauxHoraireBrut;
 
         }
-        
+
 
     public double payerSalaireMensuelBrut(){
        return this.payerSalaireMensuelBrut(HEURE_TRAVAILLEES_MENSUELLES_NORMALES);
@@ -90,17 +90,21 @@ public class Salarie extends Collaborateur {
     }
 
 
-    //Pour que l'affichage dans le main soit SEXYYYY
-    @Override // redefinir
-    public String toString(){
-        return "Le salarié s'appelle " + this.nom + ' ' + this.prenom;
-    }
-
     /**@
      * Le salarié danse la samba
-     */
+     * **/
     @Override
     public void danserLaSamba(){
         System.out.println("DANSE LA SAMBAAA 🐱‍🏍");
     }
+
+
+    //Pour que l'affichage dans le main soit SEXYYYY
+    @Override // redefinir
+    public String toString(){
+        return "Le salarié s'appelle " + this.nom + ' ' + this.prenom
+                + "et payer " + calculerSalaire(180)
+                ;
+    }
+
 }

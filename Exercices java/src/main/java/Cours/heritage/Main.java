@@ -21,6 +21,6 @@ public class Main {
                 LocalDate.of(2024,01,04)
         );
 
-        System.out.println(titouan);
+        System.out.println();
     }
 }

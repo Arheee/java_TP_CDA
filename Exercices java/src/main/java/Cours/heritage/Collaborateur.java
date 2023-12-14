@@ -84,7 +84,7 @@ public abstract class Collaborateur {
 
     public LocalDate getFinContrat() throws Exception {
         if (finContrat == null){
-            throw new Exception("Le salarié n'est pas encore licencié ! 👌");
+            throw new Exception("Le collaborateur n'est pas encore licencié ! 👌");
         }
 
         return this.finContrat;
